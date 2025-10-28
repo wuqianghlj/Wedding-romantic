@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Romantic 米白主题 */
+:root {
+  --romance-bg: #F5EDE6;
+  --accent: #C48B6C;
+  --muted: #7B6A61;
+}
+
+body {
+  background: linear-gradient(180deg,var(--romance-bg),#fff);
+  color: var(--muted);
+  font-family: "Noto Serif SC", serif;
+}
+
+a { color: var(--accent); }
+.container { max-width: 900px; margin: 0 auto; padding: 1rem; }
+
+.header-title { color: #8A5A44; }
+.card { background: rgba(255,255,255,0.8); border-radius: 12px; padding: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }

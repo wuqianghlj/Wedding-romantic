@@ -1,0 +1,1 @@
+Put your images in public/images and music at public/music.mp3 (not included).
