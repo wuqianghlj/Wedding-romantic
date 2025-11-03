@@ -2,21 +2,134 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Romantic 米白主题 */
-:root {
-  --romance-bg: #F5EDE6;
-  --accent: #C48B6C;
-  --muted: #7B6A61;
-}
+/* ===== 全局基础样式 ===== */
 
+html,
 body {
-  background: linear-gradient(180deg,var(--romance-bg),#fff);
-  color: var(--muted);
-  font-family: "Noto Serif SC", serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cormorant Garamond', 'Noto Serif SC', 'Microsoft YaHei', serif;
+  background: linear-gradient(to bottom right, #fffafc, #fdecef);
+  color: #333;
+  scroll-behavior: smooth;
+  overflow: hidden; /* 与 fullpage.js 配合防止原生滚动 */
 }
 
-a { color: var(--accent); }
-.container { max-width: 900px; margin: 0 auto; padding: 1rem; }
+* {
+  box-sizing: border-box;
+}
 
-.header-title { color: #8A5A44; }
-.card { background: rgba(255,255,255,0.8); border-radius: 12px; padding: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+/* ===== 全屏布局优化 ===== */
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+  transition: background 1s ease;
+}
+
+/* ===== 字体与排版 ===== */
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Playfair Display', 'Noto Serif SC', serif;
+  letter-spacing: 0.03em;
+}
+
+p,
+li,
+a,
+button {
+  font-family: 'Noto Sans SC', 'Microsoft YaHei', sans-serif;
+}
+
+/* ===== 动画基础 ===== */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== 导航点（右侧圆点导航）美化 ===== */
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background: #f48fb1 !important;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span {
+  background: #ec407a !important;
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+/* ===== 背景渐变过渡动画 ===== */
+#fullpage-wrapper {
+  transition: background 1.2s ease-in-out;
+}
+
+/* ===== 响应式优化 ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  p,
+  li {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 1rem;
+  }
+}
+
+/* ===== RSVP 按钮风格 ===== */
+button,
+a.bg-pink-500 {
+  box-shadow: 0 4px 14px rgba(244, 143, 177, 0.4);
+  transition: all 0.3s ease;
+}
+
+button:hover,
+a.bg-pink-500:hover {
+  box-shadow: 0 6px 18px rgba(236, 64, 122, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ===== 地图圆角阴影 ===== */
+iframe {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 婚礼主题色调变量（便于自定义） ===== */
+:root {
+  --wedding-pink: #f48fb1;
+  --wedding-pink-deep: #ec407a;
+  --wedding-cream: #fffaf7;
+  --wedding-bg: linear-gradient(to bottom right, #fffafc, #fdecef);
+}
